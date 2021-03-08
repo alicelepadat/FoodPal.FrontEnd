@@ -5,11 +5,18 @@ import { Provider } from '../models/provider';
 
 @Injectable()
 export class ProvidersService {
+  baseURL: string = 'http://localhost:5000/api'
   constructor(private http: HttpClient) {}
 
   getAllProviders(): Observable<Array<Provider>> {
     return this.http.get<Array<Provider>>(
-      'http://localhost:5000/api/providers'
+      this.baseURL + '/providers'
+    );
+  }
+
+  getProvider(providerId: number): Observable<Provider>{
+    return this.http.get<Provider>(
+      this.baseURL + `/providers/${providerId}?includeCatalogueItems=${true}`
     );
   }
 }

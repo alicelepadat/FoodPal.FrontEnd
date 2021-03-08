@@ -2,10 +2,10 @@
   <div class="glass-card card provider" *ngFor="let element of providers">
     <h2 mat-card-title>{{element.name}}</h2>
     <div>
-      <p mat-card-content>{{element.location}}</p>
+      <p mat-card-content>{{element.description}}</p>
     </div>
     <div mat-card-actions>
-      <button class="feed-me" mat-raised-button color="accent">Feed Me!</button>
+      <button class="feed-me" mat-raised-button color="accent" (click)="openCatalogue(element.id)">Feed Me!</button>
     </div>
   </div>
 </div>

@@ -8,8 +8,10 @@ import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { ProvidersService } from './services/orders.service';
 import { ProviderCatalogueComponent } from './provider-catalogue/provider-catalogue.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table'
 
-const materialImports = [MatButtonModule, MatCardModule];
+const materialImports = [MatButtonModule, MatCardModule, MatDialogModule, MatTableModule];
 
 @NgModule({
   declarations: [ProviderListComponent, ProviderCatalogueComponent],
@@ -19,6 +21,7 @@ const materialImports = [MatButtonModule, MatCardModule];
     HttpClientModule,
     ...materialImports,
   ],
-  providers: [ProvidersService]
+  providers: [ProvidersService],
+  entryComponents: [ProviderCatalogueComponent]
 })
 export class OrderModule { }

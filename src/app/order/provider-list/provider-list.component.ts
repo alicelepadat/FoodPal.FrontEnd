@@ -13,7 +13,15 @@ import { ProviderCatalogueComponent } from '../provider-catalogue/provider-catal
 export class ProviderListComponent implements OnInit, AfterViewInit {
   providers: Array<Provider>;
 
-  constructor(private providersSvc: ProvidersService) { }
+  constructor(private providersSvc: ProvidersService, public dialog: MatDialog) { }
+
+  openCatalogue(providerId: number){
+    this.dialog.open(ProviderCatalogueComponent, {
+      data: {
+        providerId: providerId
+      }
+    });
+  }
 
   ngAfterViewInit(): void {
     this.providersSvc.getAllProviders().subscribe((data)=>{
